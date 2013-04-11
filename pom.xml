@@ -3,7 +3,7 @@
 
 	<!-- Need Sonatype Parent to Deploy -->
 	<groupId>com.michelboudreau</groupId>
-	<artifactId>alternator</artifactId>
+	<artifactId>alternator-spaceape</artifactId>
 	<version>0.4.1-spaceape</version>
 	<packaging>jar</packaging>
 
