@@ -4,12 +4,11 @@
 	<!-- Need Sonatype Parent to Deploy -->
 	<groupId>com.michelboudreau</groupId>
 	<artifactId>alternator-spaceape</artifactId>
-	<version>0.4.1-spaceape</version>
+	<version>0.4.2-SNAPSHOT</version>
 	<packaging>jar</packaging>
 
 	<name>Alternator</name>
 	<description>A mock, local DynamoDB instance for testing</description>
-	<url>https://github.com/mboudreau/Alternator/</url>
 
 	<properties>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
@@ -19,32 +18,6 @@
 		<aws.version>1.3.33</aws.version>
 		<jetty.version>8.1.8.v20121106</jetty.version>
 	</properties>
-
-	<developers>
-		<developer>
-			<id>mboudreau</id>
-			<name>Michel Boudreau</name>
-			<email>michelboudreau@gmail.com</email>
-		</developer>
-		<developer>
-			<id>tbredillet</id>
-			<name>Thomas Bredillet</name>
-			<email>tnbredillet@gmail.com</email>
-		</developer>
-		<developer>
-			<id>rrutt</id>
-			<name>Rick Rutt</name>
-			<email>rrutt@live.com</email>
-		</developer>
-	</developers>
-
-	<licenses>
-		<license>
-			<name>The GNU General Public License, Version 3.0</name>
-			<url>https://www.gnu.org/licenses/gpl.txt</url>
-			<distribution>repo</distribution>
-		</license>
-	</licenses>
 
 	<build>
 		<resources>
@@ -248,12 +221,12 @@
 		</profile>
 	</profiles>
 
-<scm>
-		<url>git@github.com:mboudreau/Alternator.git</url>
-		<connection>scm:git:git@github.com:mboudreau/Alternator.git</connection>
-		<developerConnection>scm:git:git@github.com:mboudreau/Alternator.git</developerConnection>
-    <tag>alternator-0.3.5</tag>
-  </scm>
+	<scm>
+		<url>git@github.com:spaceapegames/Alternator.git</url>
+		<connection>scm:git:git@github.com:spaceapegames/Alternator.git</connection>
+		<developerConnection>scm:git:git@github.com:spaceapegames/Alternator.git</developerConnection>
+    	<tag>scm:git:git@github.com:spaceapegames/Alternator.git</tag>
+  	</scm>
 
 	<distributionManagement>
         <repository>
