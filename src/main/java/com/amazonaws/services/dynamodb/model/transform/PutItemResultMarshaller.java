@@ -36,9 +36,9 @@ public class PutItemResultMarshaller implements Marshaller<String, PutItemResult
 					}else if(value.getS() != null) {
 						jsonWriter.key("S").value(value.getS());
 					}else if(value.getNS() != null) {
-						jsonWriter.key("NS").value(StringUtils.collectionToCommaDelimitedString(value.getNS()));
+						jsonWriter.key("NS").value(value.getNS());
 					}else if(value.getSS() != null) {
-						jsonWriter.key("SS").value(StringUtils.collectionToCommaDelimitedString(value.getSS()));
+						jsonWriter.key("SS").value(value.getSS());
 					}
 					jsonWriter.endObject();
 				}
