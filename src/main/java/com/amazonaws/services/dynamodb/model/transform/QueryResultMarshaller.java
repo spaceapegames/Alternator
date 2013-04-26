@@ -40,9 +40,9 @@ public class QueryResultMarshaller implements Marshaller<String, QueryResult> {
 						} else if (val.getS() != null) {
 							jsonWriter.key("S").value(val.getS());
 						} else if (val.getNS() != null) {
-							jsonWriter.key("NS").value(StringUtils.collectionToCommaDelimitedString(val.getNS()));
+							jsonWriter.key("NS").value(val.getNS());
 						} else if (val.getSS() != null) {
-							jsonWriter.key("SS").value(StringUtils.collectionToCommaDelimitedString(val.getSS()));
+							jsonWriter.key("SS").value(val.getSS());
 						}
 						jsonWriter.endObject();
 					}
