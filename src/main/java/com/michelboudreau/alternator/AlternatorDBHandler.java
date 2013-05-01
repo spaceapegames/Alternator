@@ -933,12 +933,14 @@ class AlternatorDBHandler {
 		for (String expectedFieldName: expected.keySet()){
 			ExpectedAttributeValue expectedValue = expected.get(expectedFieldName);
 			AttributeValue currentValue = item.get(expectedFieldName);
-			if (currentValue==null) {
-				//field is missing
-				return false;
-			}
-			if (!expectedValue.getValue().equals(currentValue)){
-				return false;
+			if (expectedValue.getValue() != null) {
+                if (currentValue == null || !expectedValue.getValue().equals(currentValue)){
+                    return false;
+                }
+            }else{
+                //expecting field to be missing
+                if (currentValue!=null)
+				    return false;
 			}
 		}
 		return true;
