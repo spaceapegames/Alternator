@@ -4,20 +4,46 @@
 	<!-- Need Sonatype Parent to Deploy -->
 	<groupId>com.michelboudreau</groupId>
 	<artifactId>alternator-spaceape</artifactId>
-	<version>0.4.3-SNAPSHOT</version>
+	<version>0.6.1-SNAPSHOT</version>
 	<packaging>jar</packaging>
 
 	<name>Alternator</name>
 	<description>A mock, local DynamoDB instance for testing</description>
 
 	<properties>
-        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-        <spring.framework.version>3.1.2.RELEASE</spring.framework.version>
-        <spring.security.version>3.1.0.M1</spring.security.version>
-        <slf4j.version>1.7.0</slf4j.version>
-        <aws.version>1.3.33</aws.version>
+		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+		<spring.framework.version>3.1.2.RELEASE</spring.framework.version>
+		<spring.security.version>3.1.0.M1</spring.security.version>
+		<slf4j.version>1.7.0</slf4j.version>
+		<aws.version>1.4.2</aws.version>
         <jetty.version>8.1.8.v20121106</jetty.version>
 	</properties>
+
+	<developers>
+		<developer>
+			<id>mboudreau</id>
+			<name>Michel Boudreau</name>
+			<email>michelboudreau@gmail.com</email>
+		</developer>
+		<developer>
+			<id>tbredillet</id>
+			<name>Thomas Bredillet</name>
+			<email>tnbredillet@gmail.com</email>
+		</developer>
+		<developer>
+			<id>rrutt</id>
+			<name>Rick Rutt</name>
+			<email>rrutt@live.com</email>
+		</developer>
+	</developers>
+
+	<licenses>
+		<license>
+			<name>Apache License, Version 2.0</name>
+			<url>http://www.apache.org/licenses/LICENSE-2.0.html</url>
+			<distribution>repo</distribution>
+		</license>
+	</licenses>
 
 	<build>
 		<resources>
@@ -82,6 +108,14 @@
 					<includes>
 						<include>**/*TestSuite.java</include>
 					</includes>
+				</configuration>
+			</plugin>
+			<plugin>
+				<groupId>org.codehaus.mojo</groupId>
+				<artifactId>exec-maven-plugin</artifactId>
+				<version>1.1</version>
+				<configuration>
+					<mainClass>com.michelboudreau.alternator.AlternatorDBServer</mainClass>
 				</configuration>
 			</plugin>
 		</plugins>
