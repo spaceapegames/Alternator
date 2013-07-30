@@ -687,21 +687,24 @@ public class AlternatorDBApiVersion2Mapper
                 new HashMap<String, List<Map<String, com.amazonaws.services.dynamodbv2.model.AttributeValue>>>();
         List<com.amazonaws.services.dynamodbv2.model.ConsumedCapacity> v2Capacities =
                 new ArrayList<com.amazonaws.services.dynamodbv2.model.ConsumedCapacity>();
-        for (String tableName : result.getResponses().keySet()) {
-            BatchResponse v1Response = result.getResponses().get(tableName);
 
-            List<Map<String, com.amazonaws.services.dynamodbv2.model.AttributeValue>> v2Items =
-                    new ArrayList<Map<String, com.amazonaws.services.dynamodbv2.model.AttributeValue>>();
-            for (Map<String, AttributeValue> v1Item : v1Response.getItems()) {
-                v2Items.add(MapV1ItemToV2(v1Item));
+        if (result.getResponses()!=null){
+            for (String tableName : result.getResponses().keySet()) {
+                BatchResponse v1Response = result.getResponses().get(tableName);
+
+                List<Map<String, com.amazonaws.services.dynamodbv2.model.AttributeValue>> v2Items =
+                        new ArrayList<Map<String, com.amazonaws.services.dynamodbv2.model.AttributeValue>>();
+                for (Map<String, AttributeValue> v1Item : v1Response.getItems()) {
+                    v2Items.add(MapV1ItemToV2(v1Item));
+                }
+
+                v2Capacities.add(
+                    new com.amazonaws.services.dynamodbv2.model.ConsumedCapacity()
+                        .withTableName(tableName)
+                        .withCapacityUnits(v1Response.getConsumedCapacityUnits())
+                        );
+                v2Responses.put(tableName, v2Items);
             }
-
-            v2Capacities.add(
-                new com.amazonaws.services.dynamodbv2.model.ConsumedCapacity()
-                    .withTableName(tableName)
-                    .withCapacityUnits(v1Response.getConsumedCapacityUnits())
-                    );
-            v2Responses.put(tableName, v2Items);
         }
 
         Map<String, com.amazonaws.services.dynamodbv2.model.KeysAndAttributes> v2UnprocessedKeys = null;
