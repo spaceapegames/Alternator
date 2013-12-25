@@ -5,6 +5,8 @@ import com.amazonaws.services.dynamodb.model.Condition;
 import com.amazonaws.services.dynamodb.model.KeySchemaElement;
 import com.amazonaws.services.dynamodb.model.ResourceNotFoundException;
 import com.michelboudreau.alternator.enums.AttributeValueType;
+
+import java.math.BigDecimal;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Map;
@@ -125,13 +127,25 @@ public class ItemRangeGroup {
             else if (cond.getComparisonOperator().equals("BETWEEN")) {
                 if (cond.getAttributeValueList().size() == 2) {
                     AttributeValue valueAttr = item.get(rangeKeyName);
-                    String value = (getAttributeValueType(valueAttr).equals(AttributeValueType.S)) ? valueAttr.getS() : valueAttr.getN();
-                    AttributeValue compAttr0 = cond.getAttributeValueList().get(0);
-                    String comp0 = (getAttributeValueType(compAttr0).equals(AttributeValueType.S)) ? compAttr0.getS() : compAttr0.getN();
-                    AttributeValue compAttr1 = cond.getAttributeValueList().get(1);
-                    String comp1 = (getAttributeValueType(compAttr1).equals(AttributeValueType.S)) ? compAttr1.getS() : compAttr1.getN();
-                    if ((value.compareTo(comp0) >= 0) && (value.compareTo(comp1) <= 0)) {
-                        filteredItems.add(item);
+                    if (getAttributeValueType(valueAttr).equals(AttributeValueType.S)){
+                        String value = valueAttr.getS();
+                        AttributeValue compAttr0 = cond.getAttributeValueList().get(0);
+                        String comp0 = compAttr0.getS();
+                        AttributeValue compAttr1 = cond.getAttributeValueList().get(1);
+                        String comp1 = compAttr1.getS();
+                        if ((value.compareTo(comp0) >= 0) && (value.compareTo(comp1) <= 0)) {
+                            filteredItems.add(item);
+                        }
+                    }
+                    else {
+                        BigDecimal value = new BigDecimal(valueAttr.getN());
+                        AttributeValue compAttr0 = cond.getAttributeValueList().get(0);
+                        BigDecimal comp0 = new BigDecimal(compAttr0.getN());
+                        AttributeValue compAttr1 = cond.getAttributeValueList().get(1);
+                        BigDecimal comp1 = new BigDecimal(compAttr1.getN());
+                        if ((value.compareTo(comp0) >= 0) && (value.compareTo(comp1) <= 0)) {
+                            filteredItems.add(item);
+                        }
                     }
                 }
             }
