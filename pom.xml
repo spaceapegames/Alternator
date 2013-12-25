@@ -4,7 +4,7 @@
 	<!-- Need Sonatype Parent to Deploy -->
 	<groupId>com.michelboudreau</groupId>
 	<artifactId>alternator-spaceape</artifactId>
-	<version>0.6.2-SNAPSHOT</version>
+	<version>0.6.2</version>
 	<packaging>jar</packaging>
 
 	<name>Alternator</name>
@@ -259,7 +259,7 @@
 		<url>git@github.com:spaceapegames/Alternator.git</url>
 		<connection>scm:git:git@github.com:spaceapegames/Alternator.git</connection>
 		<developerConnection>scm:git:git@github.com:spaceapegames/Alternator.git</developerConnection>
-    	<tag>scm:git:git@github.com:spaceapegames/Alternator.git</tag>
+    	<tag>alternator-spaceape-0.6.2</tag>
   	</scm>
 
 	<distributionManagement>
