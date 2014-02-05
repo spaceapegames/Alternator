@@ -752,6 +752,7 @@ public class AlternatorDBHandler {
                         new com.amazonaws.services.dynamodbv2.model.DeleteItemRequest()
                             .withKey(deleteRequest.getKey())
                             ;
+                    deleteItemRequest.setTableName(tableName);
                     deleteItemV2(deleteItemRequest);
 				}
 			}
