@@ -4,7 +4,7 @@
   <modelVersion>4.0.0</modelVersion>
   <groupId>com.michelboudreau</groupId>
   <artifactId>alternator-spaceape</artifactId>
-  <version>0.6.6</version>
+  <version>0.6.7-SNAPSHOT</version>
   <name>Alternator</name>
   <description>A mock, local DynamoDB instance for testing</description>
   <licenses>
@@ -50,9 +50,9 @@
     </snapshotRepository>
   </distributionManagement>
   <properties>
-    <jetty.version>8.1.8.v20121106</jetty.version>
-    <slf4j.version>1.7.0</slf4j.version>
     <spring.framework.version>3.1.2.RELEASE</spring.framework.version>
+    <slf4j.version>1.7.0</slf4j.version>
+    <jetty.version>8.1.8.v20121106</jetty.version>
     <spring.security.version>3.1.0.M1</spring.security.version>
     <aws.version>1.5.1</aws.version>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
